@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:notes_app/view/edit_note_view.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 
 class NoteItem extends StatelessWidget {
