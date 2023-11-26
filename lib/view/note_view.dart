@@ -11,6 +11,7 @@ static String id ='NoteView';
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
               context: context,
               builder: (context) {
                 return const AddButtonModelSheet();

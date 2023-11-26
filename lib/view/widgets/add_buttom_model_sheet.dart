@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:notes_app/cubits/add_note_cubit.dart';
+import 'package:notes_app/add_cubits/add_notes_cubits/add_note_cubit.dart';
 import 'package:notes_app/view/widgets/add_note_form.dart';
 
 class AddButtonModelSheet extends StatelessWidget {
@@ -12,7 +11,10 @@ class AddButtonModelSheet extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding:  EdgeInsets.only(left: 16,right: 16,
+        bottom: MediaQuery.of(context).viewInsets.bottom
+        ),
+        
         child: BlocConsumer<AddNoteCubit, AddNoteSate>(
           listener: (context, state) {
             if (state is AddNoteFailur) {

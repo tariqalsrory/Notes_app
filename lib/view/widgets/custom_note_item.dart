@@ -46,6 +46,3 @@ class NoteItem extends StatelessWidget {
     );
   }
 }
-
-class FontAwesomeIcons {
-}
