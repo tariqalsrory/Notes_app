@@ -1,29 +1,34 @@
-
 import 'package:flutter/material.dart';
 import 'package:notes_app/constant.dart';
 
 class CustomButtonSave extends StatelessWidget {
-  const CustomButtonSave({super.key, this.ontap});
+  const CustomButtonSave({super.key, this.ontap, this.isloading = false});
 
   final void Function()? ontap;
+  final bool isloading;
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: ontap,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 40,
         decoration: BoxDecoration(
-          color: kprimarycolor
-          ,
-          borderRadius: BorderRadius.circular(8)
-        ),
-        child:const Center(
-          child:  Text('Add',
-          style:TextStyle( 
-            color: Colors.black,
-            fontWeight: FontWeight.bold
-          ),),
+            color: kprimarycolor, borderRadius: BorderRadius.circular(8)),
+        child: Center(
+          child: isloading
+              ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ),
+                )
+              : const Text(
+                  'Add',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
         ),
       ),
     );
