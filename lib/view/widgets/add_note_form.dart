@@ -57,10 +57,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
 
+                    var date = DateTime.now();
+
                     var noteModel = NoteModel(
                         title: title!,
                         subtitle: subtitle!,
-                        date: DateTime.now().toString(),
+                        date: "${date.year.toString()}-${date.month.toString().padLeft(2,'0')}-${date.day.toString().padLeft(2,'0')}",
                         color: Colors.blue.value);
 
                     BlocProvider.of<AddNoteCubit>(context).addnote(noteModel);
