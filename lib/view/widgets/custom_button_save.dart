@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constant.dart';
 
 class CustomButtonSave extends StatelessWidget {
-  const CustomButtonSave({super.key, this.ontap, this.isloading = false});
-
+  const CustomButtonSave({super.key, this.ontap, this.isloading = false, required this.label});
+  
+  final String label;
   final void Function()? ontap;
   final bool isloading;
   @override
@@ -24,9 +25,9 @@ class CustomButtonSave extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 )
-              : const Text(
-                  'Add',
-                  style: TextStyle(
+              :  Text(
+                  label,
+                  style:const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
         ),

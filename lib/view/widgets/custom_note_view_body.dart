@@ -27,7 +27,7 @@ class _NoteViewBodyState extends State<NoteViewBody> {
             height: 32,
           ),
 
-           CustomAppBar(text: 'Notes',icon:const Icon(Icons.search),ontap: (){},),
+           CustomAppBar(text: 'Notes',icon:const Icon(Icons.search),onPressed: (){},),
          
          const Expanded(child: ListViewIteM())
         ],
