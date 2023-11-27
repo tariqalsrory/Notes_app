@@ -23,15 +23,8 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-         BlocProvider(
-          create: (context) => NoteCubit(),
-        ),
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => NoteCubit(),
       child: MaterialApp(
         routes: {
           NoteView.id: (context) => const NoteView(),
