@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notes_app/add_cubits/add_notes_cubits/add_note_cubit.dart';
 import 'package:notes_app/add_cubits/cubit/note_cubit.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/model/notemodel.dart';
@@ -21,12 +22,17 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NoteCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => NoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AddNoteCubit(),
+        ),
+      ],
       child: MaterialApp(
-        routes: {
-          NoteView.id: (context) => const NoteView()
-        },
+        routes: {NoteView.id: (context) => const NoteView()},
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
         initialRoute: NoteView.id,
